@@ -1,0 +1,63 @@
+body
+{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.main
+{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    background-color: cadetblue;
+    display: block;
+}
+.project
+{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 40px 0 0 0;
+    width: 30%;
+}
+@keyframes move{
+    from{ right: -30%;}
+    to  { right:100%;}
+}
+.project{
+    /* animation-name: move;
+    animation-duration: 12s;
+    animation-iteration-count: infinite; */
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+}
+.intro
+{
+    width: 30%;
+    height: auto;
+    /* background-color: saddlebrown; */
+    float: right;
+    margin-top: 30px;
+}
+p
+{
+    margin-top: 70px;
+    float:left;
+    font-size: 20px;
+}
+.content
+{
+    width: 100%;
+    height: 200px;
+    
+}
+.content_item
+{
+    margin-top: 150px;
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-left: 50%;
+    transform:translateX(-50%);
+}

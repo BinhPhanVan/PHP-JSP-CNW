@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html
+        {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            text-align: center;
+            justify-items: center;
+        }
+        form{
+            text-align: center;
+        }
+        label{
+            display: inline-block;
+            width: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <?php
+    echo  '<div class="container">
+            <form action="../Controller/Controller_Student.php" method="post">
+                <h2>Nhập thông tin tìm kiếm</h2>
+                <label for="Label_Info">Trường</label>
+                <select name="Label_Info">
+                    <option value="ID">ID</option>
+                    <option value="Name">Name</option>
+                    <option value="Age">Age</option>
+                    <Option value="University">University</Option>
+                </select>
+                <br>
+                <label for="data">Nhập thông tin tìm kiếm: </label>
+                <input type="text" name="data" value="">
+                <br><br>
+                <input type="submit" value="Search" name="searchSV">
+            </form>
+            <br>
+            <button><a href="../index.php">Trang chủ</a></button>
+        </div>' ;
+    ?>
+</body>
+</html>

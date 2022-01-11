@@ -1,0 +1,22 @@
+body,html
+{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.main
+{
+    background-color: cadetblue;
+    height: 200px;
+    width: 100%;
+}
+.end
+{
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-left: 50%;
+    transform:translateX(-50%);
+    padding-top: 40px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentList</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+
+        }
+        a:hover{
+            color: rgb(37, 37, 238);
+            text-decoration: underline;
+        }
+        a:active{
+            color: rgb(238, 63, 63);
+        }
+    </style>
+</head>
+<body>
+    <h2>DANH SÁCH SINH VIÊN CẬP NHẬT</h2>
+    <?php
+        for($i=0; $i<sizeof($studentList); $i++) 
+        {
+            echo '<p>'.$studentList[$i]->id.' .<a href="?update='.$studentList[$i]->id.'">'.$studentList[$i]->name.'</a></p>';
+            echo "<p> Age: ".$studentList[$i]->age."</p>" ;
+            echo "<p> University: ".$studentList[$i]->university."</p><br>" ;
+        }
+    ?>
+    <p><a href="javascript:history.back()">Back</a></p>
+</body>
+</html>

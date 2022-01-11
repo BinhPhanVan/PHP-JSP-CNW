@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label 
+            {
+                display: inline-block;
+                width:100px;
+                text-align: left;
+            }
+    </style>
+</head>
+<body>
+    <body>
+        <div class="container">
+            <form action="../Controller/Controller.php" method="post" style="text-align:center;padding-top:100px;">
+                <h1 style="color: blue;">Xóa sinh viên</h1>
+                <p>Xóa sinh viên:
+                <?php
+                    echo $SV->getName();
+                ?>
+                </p>
+                <label for="">Mã SV</label>
+                <input type="text" name="IDSV" value='<?php echo $SV->getMSSV(); ?>' readonly>
+                <br>
+                <br>
+                <label for="pass">Họ và tên </label>
+                <input type="text" name="nameSV" value='<?php echo $SV->getName(); ?>' disabled>
+                <br>
+                <br>
+                
+                <label for="" style="margin-left: 80px;"> Giới tính</label>
+                <?php 
+                    if($SV->getGender()==1)
+                    {
+                        echo ' <input type="radio" name="GioiTinh" value="1" checked >
+                        <label for="">Nam</label>
+                        <input type="radio" name="GioiTinh" value="0" disabled>
+                        <label for="">Nữ</label>';
+                    }
+                    else{
+                        echo ' <input type="radio" name="GioiTinh" value="1" disabled>
+                        <label for="">Nam</label>
+                        <input type="radio" name="GioiTinh" value="0" checked >
+                        <label for="">Nữ</label>';
+                    } 
+                ?>
+               
+                <br>
+                <br>
+                <label for="">Khoa</label>
+                <select name="MaKhoa" id="" style="width: 170px;height: 30px;" disabled>
+                    <?php  
+                        for($i=0;$i<sizeof($ListKhoa);$i++)
+                        {
+                            if($SV->getMaKhoa()==$ListKhoa[$i]->getMaKhoa())
+                            {
+                                echo '<option value='.$ListKhoa[$i]->getMaKhoa().' selected>'.$ListKhoa[$i]->getTenKhoa().'</option>';
+                            }
+                            else
+                            {
+                                echo '<option value='.$ListKhoa[$i]->getMaKhoa().'>'.$ListKhoa[$i]->getTenKhoa().'</option>';
+                            }
+                            
+                        }
+                    ?>
+                </select>
+                <br>
+                <br>
+                <button type ="submit" name="DeleteSV">Xác nhận</button>
+               
+            </form>
+            <a href="javascript:history.back()"><button>Quay lại</button></a>
+        </div>
+</body>
+</body>
+</html> 

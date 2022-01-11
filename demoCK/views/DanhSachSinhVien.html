@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    table td, table th {
+    border: 1px solid rgb(253, 252, 252);
+    padding: 8px;
+    }
+</style>
+<body>
+    <h2>Màn hình danh sách sinh viên:</h2>
+    <form action="../Controller/Controller.php" method="post">
+        <select name="maKhoa"  style="width: 200px;height: 30px;">
+            <option value='-1'>----Khoa----</option>
+            <?php  
+                for($i=0;$i<sizeof($ListKhoa);$i++)
+                {
+                    echo '<option value='.$ListKhoa[$i]->getMaKhoa().'>'.$ListKhoa[$i]->getTenKhoa().'</option>';
+                }
+            ?>
+            
+        </select>
+        <input type="submit" value="Xem" name="show">
+        
+    </form>
+    <form action="../Controller/Controller.php" method="post">
+        <input type="submit" value="Thêm mới" name="add">
+    </form>
+    <br>
+    <hr>
+    <br>
+    <table>
+        <tr style="background-color: rgb(5, 155, 155);">
+            <td>MSSV</td>
+            <td>Họ và tên </td>
+            <td>Giới tính</td>
+            <td>Khoa</td>
+            <td>Chức năng</td>
+        </tr>
+        <?php 
+            for($i=0;$i<sizeof($ListSV);$i++)
+            {
+                if(1 == $ListSV[$i]->getGender()){
+                    $gender = "Nam";
+                }
+                else 
+                {
+                    $gender = "Nữ";
+                }
+                for($j=0;$j<sizeof($ListKhoa);$j++)
+                {
+                    if( $ListSV[$i]->getMaKhoa() == $ListKhoa[$j]->getMaKhoa()){
+                        $TenKhoa = $ListKhoa[$j]->getTenKhoa();
+                    }
+                }
+                echo '<tr>
+                    <td>'.$ListSV[$i]->getMSSV().'</td>
+                    <td>'.$ListSV[$i]->getName().'</td>
+                    <td>'.$gender.'</td>
+                    <td>'.$TenKhoa.'</td>
+                    <td><a href="?edit='.$ListSV[$i]->getMSSV().'"><button style="background-color: rgba(78, 78, 252, 0.705);">Edit</button></a>
+                        <a href="?delete='.$ListSV[$i]->getMSSV().'"><button style="background-color: rgba(252, 90, 78, 0.705);">Delete</button></a>
+                    </td>
+                </tr>';
+            }    
+        ?>
+        
+    </table>
+<br>
+<p><a href="../index.php">Đăng xuất</a></p>
+</body>
+</html>
